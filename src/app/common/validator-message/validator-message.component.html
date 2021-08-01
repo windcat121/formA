@@ -1,0 +1,14 @@
+<ng-container *ngIf="control.errors">
+    <ng-container *ngIf="control.dirty && control.errors.required">
+        <span class="error-style">请输入{{controlName}}</span>
+    </ng-container>
+    <ng-container *ngIf="control.dirty && control.errors.specialcode">
+        <span class="error-style">输入值不能包含{{control.errors.specialcode}}</span>
+    </ng-container>
+    <ng-container *ngIf="control.dirty && control.errors.maxlength">
+        <span class="error-style">{{controlName}}的输入值长度不能大于{{control.errors.maxlength.requiredLength}}  </span>
+    </ng-container>
+    <ng-container *ngIf="control.dirty && control.errors.email">
+        <span class="error-style">{{controlName}}的{{control.errors.email}}  </span>
+    </ng-container>
+</ng-container>

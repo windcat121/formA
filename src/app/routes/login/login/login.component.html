@@ -1,3 +1,47 @@
-<p>
-  login works!
-</p>
+<div>
+    <nz-breadcrumb style="height: 50px;line-height: 50px;">
+        <nz-breadcrumb-item>Home</nz-breadcrumb-item>
+        <nz-breadcrumb-item>
+            <a>Application List</a>
+        </nz-breadcrumb-item>
+        <nz-breadcrumb-item>An Application</nz-breadcrumb-item>
+    </nz-breadcrumb>
+</div>
+
+
+<nz-divider></nz-divider>
+
+<div style="width: 300px;">
+    <form nz-form [formGroup]="myForm">
+        <nz-form-item>
+            <nz-form-label [nzSpan]="7" nzFor="username" nzRequired>用户名</nz-form-label>
+            <nz-form-control [nzSpan]="17">
+                <input formControlName="username" nz-input type="text" id="username" nz-tooltip nzTitle="请输入用户名，不支持输入{{special}}特殊字符，且长度不超过8位" placeholder="请输入用户姓名">
+                <nz-form-explain *ngIf="username.invalid || username.pending">
+                    <app-validator-message [control]="username" controlName="用户姓名"></app-validator-message>
+                </nz-form-explain>
+            </nz-form-control>
+        </nz-form-item>
+        <nz-form-item>
+            <nz-form-label [nzSpan]="7" nzFor="email">QQ邮箱</nz-form-label>
+            <nz-form-control [nzSpan]="17">
+                <input formControlName="qqemail" nz-input type="text" id="email" nz-tooltip nzTitle="请输入邮箱" placeholder="请输入email">
+                <nz-form-explain *ngIf="qqemail.invalid || qqemail.pending">
+                    <app-validator-message [control]="qqemail" controlName="QQ邮箱"></app-validator-message>
+                </nz-form-explain>
+            </nz-form-control>
+        </nz-form-item>
+    </form>
+
+    <button nz-button nzType="default" (click)="getValue()">OK</button>
+
+    <div *ngIf="people.username&&people.qqemail">
+        这里是得到的值：<br />
+        <div>
+            {{people.username}}和{{people.qqemail}}
+        </div>
+
+    </div>
+
+
+</div>
