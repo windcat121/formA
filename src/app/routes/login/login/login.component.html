@@ -33,7 +33,7 @@
         </nz-form-item>
     </form>
 
-    <button nz-button nzType="default" (click)="getValue()">OK</button>
+    <button nz-button nzType="primary" [disabled]="username.invalid||qqemail.invalid" (click)="getValue()">OK</button>
 
     <div *ngIf="people.username&&people.qqemail">
         这里是得到的值：<br />
